@@ -1,67 +1,152 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #faf8ef;
-  text-align: center;
+:root{
+  --bg:#070A12;
+  --card:#0C1224;
+  --card2:#0A1020;
+  --text:#EAF0FF;
+  --muted:#9AA7C7;
+  --line:rgba(255,255,255,.08);
+  --accent:#4C7DFF;
+  --accent2:#00E5FF;
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
 }
 
-h1 {
-  margin-top: 30px;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(76,125,255,.25), transparent 55%),
+              radial-gradient(900px 700px at 90% 30%, rgba(0,229,255,.18), transparent 60%),
+              var(--bg);
+  color:var(--text);
 }
 
-.subtitle {
-  color: #776e65;
+.container{
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 16px;
 }
 
-.game {
-  margin: 30px auto;
-  width: 320px;
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 18px;
 }
 
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo{
+  width:40px;height:40px;border-radius:14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 10px 30px rgba(76,125,255,.25);
+}
+.title{
+  display:flex;flex-direction:column;line-height:1.1;
+}
+.title b{font-size:18px}
+.title span{font-size:13px;color:var(--muted)}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding:6px 10px;
+  border-radius:999px;
+  color:var(--muted);
+  font-size:12px;
 }
 
-.score {
-  background: #bbada0;
-  color: #fff;
-  padding: 10px;
-  border-radius: 6px;
+.grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:14px;
+}
+@media (max-width: 900px){
+  .grid{grid-template-columns:1fr}
 }
 
-button {
-  padding: 8px 12px;
-  border: none;
-  background: #8f7a66;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 14px;
 }
 
-#board {
-  margin-top: 15px;
-  display: grid;
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor:pointer;
+  transition: transform .08s ease, background .2s ease;
+}
+.btn:hover{background: rgba(255,255,255,.07)}
+.btn:active{transform: scale(.98)}
+.btn.primary{
+  border:0;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#061021;
+  font-weight:700;
+}
+.btn.ghost{background: transparent}
+.small{font-size:12px;color:var(--muted)}
+.muted{color:var(--muted)}
+.code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+  font-size: 12px;
+  background: rgba(0,0,0,.35);
+  border:1px solid var(--line);
+  padding: 6px 8px;
+  border-radius: 12px;
+  overflow:auto;
+  max-width: 100%;
+}
+
+.board-wrap{display:flex;flex-direction:column;gap:10px}
+#board{
+  width: 360px;
+  height: 360px;
+  display:grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  background: #bbada0;
-  padding: 8px;
-  border-radius: 8px;
+  gap: 10px;
+  background: rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  padding: 12px;
+  border-radius: 18px;
+}
+@media (max-width: 420px){
+  #board{width: 100%; height:auto}
 }
 
-.cell {
-  height: 70px;
-  background: #cdc1b4;
-  border-radius: 6px;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cell{
+  height: 74px;
+  border-radius: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 26px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  transition: transform .08s ease;
 }
-
-.hint {
-  margin-top: 10px;
-  color: #776e65;
-  font-size: 14px;
+.cell.pop{transform: scale(1.04)}
+.footer{
+  margin-top: 14px;
+  text-align:center;
+  color: var(--muted);
+  font-size: 12px;
 }
