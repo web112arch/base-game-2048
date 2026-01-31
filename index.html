@@ -1,25 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Base Game 2048</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Base Game 2048</h1>
-  <p class="subtitle">A simple 2048 game. Web first, Base later.</p>
-
-  <div class="game">
-    <div class="top">
-      <div class="score">
-        Score: <span id="score">0</span>
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="title">
+          <b>Base Game 2048</b>
+          <span>Web-first • Base L2 integration next</span>
+        </div>
       </div>
-      <button id="newGame">New Game</button>
+      <div class="badges">
+        <div class="badge">dApp UI</div>
+        <div class="badge">Base L2 ready</div>
+        <div class="badge">Open-source</div>
+      </div>
     </div>
 
-    <div id="board"></div>
-    <p class="hint">Use arrow keys to play</p>
+    <div class="grid">
+      <div class="card board-wrap">
+        <div class="row">
+          <div>
+            <div class="small">Score</div>
+            <div style="font-size:22px;font-weight:800"><span id="score">0</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" id="newGame">New Game</button>
+          </div>
+        </div>
+
+        <div id="board"></div>
+        <div class="row">
+          <span class="small">Use arrow keys • Mobile swipe (next)</span>
+          <span class="small muted" id="status">ready</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <div style="font-weight:800">Web3 Panel</div>
+            <div class="small">Coming soon: on-chain scores on Base</div>
+          </div>
+          <button class="btn primary" id="connect" disabled>Connect Wallet</button>
+        </div>
+
+        <div style="margin-top:10px">
+          <div class="small">Contract address</div>
+          <div class="code">0xYOUR_CONTRACT_ADDRESS</div>
+        </div>
+
+        <div style="margin-top:10px">
+          <div class="small">Roadmap</div>
+          <ul class="small">
+            <li>Deploy Base Sepolia contract</li>
+            <li>Submit score on-chain</li>
+            <li>Leaderboard (events)</li>
+            <li>NFT badge for 2048+</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:10px" class="small muted">
+          Tip: after deploy, we’ll enable wallet connect + submit.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Built for Base • Base Game 2048</div>
   </div>
 
   <script src="app.js"></script>
