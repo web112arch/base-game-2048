@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Base Game 2048</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Base Game 2048</h1>
+  <p class="subtitle">A simple 2048 game. Web first, Base later.</p>
+
+  <div class="game">
+    <div class="top">
+      <div class="score">
+        Score: <span id="score">0</span>
+      </div>
+      <button id="newGame">New Game</button>
+    </div>
+
+    <div id="board"></div>
+    <p class="hint">Use arrow keys to play</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
